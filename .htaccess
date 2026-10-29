@@ -1,0 +1,135 @@
+# =============================================
+# Apache Configuration for Samol Murmu Portfolio
+# =============================================
+
+# Enable Rewrite Engine
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+</IfModule>
+
+# =============================================
+# SECURITY HEADERS
+# =============================================
+<IfModule mod_headers.c>
+    # Security Headers
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+    
+    # HSTS (only if HTTPS is enabled)
+    # Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+    
+    # Content Security Policy (adjust as needed)
+    # Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://unpkg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; img-src 'self' https://images.unsplash.com data:; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; connect-src 'self'; frame-src 'none'; object-src 'none'"
+</IfModule>
+
+# =============================================
+# REDIRECT WWW TO NON-WWW (or vice versa)
+# =============================================
+<IfModule mod_rewrite.c>
+    # Redirect www to non-www
+    RewriteCond %{HTTP_HOST} ^www\.samolmurmu\.com [NC]
+    RewriteRule ^(.*)$ https://samolmurmu.com/$1 [L,R=301]
+    
+    # Force HTTPS
+    # RewriteCond %{HTTPS} off
+    # RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [L,R=301]
+</IfModule>
+
+# =============================================
+# CACHING
+# =============================================
+<IfModule mod_expires.c>
+    ExpiresActive On
+    
+    # Default: 1 month
+    ExpiresDefault "access plus 1 month"
+    
+    # HTML: 0 seconds (no cache)
+    ExpiresByType text/html "access plus 0 seconds"
+    
+    # CSS, JS: 1 year
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    
+    # Images: 1 year
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    
+    # Fonts: 1 year
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/eot "access plus 1 year"
+    
+    # JSON, XML: 1 day
+    ExpiresByType application/json "access plus 1 day"
+    ExpiresByType text/xml "access plus 1 day"
+</IfModule>
+
+# =============================================
+# COMPRESSION
+# =============================================
+<IfModule mod_deflate.c>
+    # Enable compression
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript
+    AddOutputFilterByType DEFLATE application/javascript application/json application/xml
+    AddOutputFilterByType DEFLATE image/svg+xml
+    
+    # Remove browser bugs
+    BrowserMatch ^Mozilla/4 gzip-only-text/html
+    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+    Header append Vary User-Agent
+</IfModule>
+
+# =============================================
+# DIRECTORY PROTECTION
+# =============================================
+# Disable directory listing
+Options -Indexes
+
+# Protect sensitive files
+<FilesMatch "\.(sql|md|log|env|git|json)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Protect backend directory
+<IfModule mod_rewrite.c>
+    RewriteRule ^backend/controllers/contact\.php$ - [L]
+    RewriteRule ^backend/ - [F,L]
+</IfModule>
+
+# =============================================
+# CUSTOM ERROR PAGES
+# =============================================
+ErrorDocument 404 /404.html
+ErrorDocument 403 /403.html
+ErrorDocument 500 /500.html
+
+# =============================================
+# BLOCK BAD BOTS
+# =============================================
+<IfModule mod_rewrite.c>
+    RewriteCond %{HTTP_USER_AGENT} (libwww-perl|wget|curl|python|java|ruby|scrapy|php) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+# =============================================
+# PHP SETTINGS (if allowed)
+# =============================================
+<IfModule mod_php.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>

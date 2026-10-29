@@ -1,0 +1,279 @@
+/* ============================================= */
+/* LIGHT MODE OVERRIDES                           */
+/* When body has .light-mode class                */
+/* ============================================= */
+
+body.light-mode {
+    --bg-primary: #f8fafc;
+    --bg-secondary: #f1f5f9;
+    --bg-card: #ffffff;
+    --bg-card-hover: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(0, 0, 0, 0.08);
+    --border-color: rgba(15, 23, 42, 0.1);
+    --border-light: rgba(0, 0, 0, 0.04);
+}
+
+body.light-mode .navbar {
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+body.light-mode .navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+}
+
+body.light-mode .navbar-nav .nav-link {
+    color: var(--text-secondary);
+}
+
+body.light-mode .navbar-nav .nav-link:hover,
+body.light-mode .navbar-nav .nav-link.active {
+    color: var(--accent);
+    background: rgba(212, 175, 55, 0.08);
+}
+
+body.light-mode .brand-text {
+    color: var(--text-primary);
+}
+
+body.light-mode .brand-subtitle {
+    color: var(--text-muted);
+}
+
+body.light-mode .hero-section {
+    background: linear-gradient(135deg, rgba(10, 38, 71, 0.03) 0%, rgba(248, 250, 252, 1) 50%, rgba(139, 0, 0, 0.05) 100%);
+}
+
+body.light-mode .hero-section::before {
+    background: radial-gradient(circle, rgba(139, 0, 0, 0.05) 0%, transparent 70%);
+}
+
+body.light-mode .hero-section::after {
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+}
+
+body.light-mode .hero-title .greeting {
+    color: var(--text-muted);
+}
+
+body.light-mode .hero-description {
+    color: var(--text-secondary);
+}
+
+body.light-mode .hero-image {
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+body.light-mode .badge-status {
+    background: rgba(212, 175, 55, 0.1);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+body.light-mode .about-section {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+}
+
+body.light-mode .counter-section {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+}
+
+body.light-mode .counter-section::before {
+    opacity: 0.1;
+}
+
+body.light-mode .counter-card {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .counter-number {
+    color: var(--text-primary);
+}
+
+body.light-mode .skills-section {
+    background: var(--bg-secondary);
+}
+
+body.light-mode .skill-category-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+}
+
+body.light-mode .services-section {
+    background: var(--bg-primary);
+}
+
+body.light-mode .service-card {
+    background: var(--glass-bg);
+}
+
+body.light-mode .projects-section {
+    background: var(--bg-secondary);
+}
+
+body.light-mode .project-card {
+    background: var(--glass-bg);
+}
+
+body.light-mode .project-overlay {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+body.light-mode .portfolio-section {
+    background: var(--bg-primary);
+}
+
+body.light-mode .portfolio-search input {
+    background: var(--bg-card);
+    border-color: var(--glass-border);
+    color: var(--text-primary);
+}
+
+body.light-mode .portfolio-overlay {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.95) 100%);
+}
+
+body.light-mode .portfolio-overlay p {
+    color: var(--text-secondary);
+}
+
+body.light-mode .testimonials-section {
+    background: var(--bg-secondary);
+}
+
+body.light-mode .testimonial-card {
+    background: var(--glass-bg);
+}
+
+body.light-mode .pricing-section {
+    background: var(--bg-primary);
+}
+
+body.light-mode .pricing-card {
+    background: var(--glass-bg);
+}
+
+body.light-mode .pricing-card.featured {
+    border-color: var(--accent);
+}
+
+body.light-mode .resume-section {
+    background: var(--bg-secondary);
+}
+
+body.light-mode .timeline-content {
+    background: var(--glass-bg);
+}
+
+body.light-mode .timeline-dot {
+    border-color: var(--bg-secondary);
+}
+
+body.light-mode .blog-section {
+    background: var(--bg-primary);
+}
+
+body.light-mode .blog-card {
+    background: var(--glass-bg);
+}
+
+body.light-mode .contact-section {
+    background: var(--bg-secondary);
+}
+
+body.light-mode .contact-form-wrapper {
+    background: var(--glass-bg);
+}
+
+body.light-mode .contact-info-card {
+    background: var(--glass-bg);
+}
+
+body.light-mode .form-control,
+body.light-mode .form-select {
+    background: rgba(0, 0, 0, 0.02);
+    border-color: var(--glass-border);
+    color: var(--text-primary);
+}
+
+body.light-mode .form-control:focus,
+body.light-mode .form-select:focus {
+    background: rgba(212, 175, 55, 0.03);
+    border-color: var(--accent);
+}
+
+body.light-mode .form-select option {
+    background: var(--bg-card);
+    color: var(--text-primary);
+}
+
+body.light-mode .footer-section {
+    background: var(--bg-primary);
+}
+
+body.light-mode .footer-links a,
+body.light-mode .footer-contact a {
+    color: var(--text-secondary);
+}
+
+body.light-mode .footer-social a {
+    color: var(--text-muted);
+    border-color: var(--glass-border);
+}
+
+body.light-mode .copyright {
+    color: var(--text-muted);
+}
+
+body.light-mode .footer-tagline {
+    color: var(--text-muted);
+}
+
+body.light-mode .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(15, 23, 42, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+body.light-mode .navbar-collapse {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid var(--glass-border);
+}
+
+body.light-mode .scroll-to-top {
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.4);
+}
+
+body.light-mode .progress-bar {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+body.light-mode .btn-outline-secondary {
+    border-color: rgba(0, 0, 0, 0.2);
+    color: var(--text-primary);
+}
+
+body.light-mode .btn-outline-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+body.light-mode :focus-visible {
+    outline-color: var(--accent);
+}
+
+body.light-mode ::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+body.light-mode ::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+}
+
+body.light-mode ::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
